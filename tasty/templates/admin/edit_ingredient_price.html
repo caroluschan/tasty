@@ -1,0 +1,33 @@
+{% extends "admin/base.html" %}
+{% load humanize %}
+
+{% block content %}
+    <form method="post">
+        {{ form }}
+        {% csrf_token%}
+        <input type="submit" value="Submit" onClick='submitForm()'>
+    </form>
+<br>
+
+{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script type="text/javascript">
+        function submitForm() {
+           jQuery("form").submit();
+        }
+    </script>
+    <style>
+        .display{
+            padding:5px;
+            border-color: gray;
+            border-collapse: collapse;
+            min-width: 100px;
+        }
+        .tagger{
+            background-color: #6F7E95;
+            color: white;
+        }
+    </style>
+{% endblock %}
