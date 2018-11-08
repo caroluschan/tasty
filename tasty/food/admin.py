@@ -1,5 +1,6 @@
 from food.models import *
 from django.contrib import admin, messages
+from jet.admin import CompactInline
 from django.utils.html import format_html
 from django.shortcuts import redirect
 from django.db.models import Count
@@ -9,17 +10,27 @@ from django.db.models import Count
 
 class IngredientAdmin(admin.ModelAdmin):
     list_display = ['name', 'price']
+    list_display_links= ['name', ]
     list_per_page = 10
 
     def price(self, object):
         return object.price()
+
+class IngredientInline(admin.TabularInline):
+    model = UnitIngredient
+    extra = 1
+    fields = ['ingredient', 'quantity_used']
+    show_change_link = True
 
 class DishAdmin(admin.ModelAdmin):
     list_display = ['name', 'price']
     list_per_page = 10
+    inlines = (IngredientInline,)
 
     def price(self, object):
         return object.price()
+
+
 
 
 

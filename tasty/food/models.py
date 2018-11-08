@@ -1,5 +1,5 @@
 from django.db import models
-
+import decimal
 # Create your models here.
 
 class Dish(models.Model):
@@ -7,12 +7,12 @@ class Dish(models.Model):
     description = models.TextField(null=True)
 
     def price(self):
-        sum = 0.0
+        sum = decimal.Decimal(0.0)
         for item in self.unit_ingredients.all():
-            price = item.ingredient.price()
-            if price == 'N/A':
+            price = item.ingredient.latestIngredientPrice()
+            if price == None:
                 return 'Price of %s is missing' % item.ingredient.name
-            sum += round(price.price / price.quantity * item.quantity_used, 1)
+            sum = sum + round(price.price / price.quantity * item.quantity_used, 1)
         return '$%s' % str(sum)
 
     def __str__(self):
@@ -30,6 +30,8 @@ class Ingredient(models.Model):
             return '$%s / %s %s' % (str(price.price), str(price.quantity), self.unit)
         else:
             return 'N/A'
+    def latestIngredientPrice(self):
+         return self.prices.order_by('-date').first()
 
     def __str__(self):
         return self.name
