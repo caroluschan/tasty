@@ -9,7 +9,7 @@ from django.db.models import Count
 # Register your models here.
 
 class IngredientAdmin(admin.ModelAdmin):
-    list_display = ['name', 'price']
+    list_display = ['name', 'unit','price']
     list_display_links= ['name', ]
     list_per_page = 10
 
