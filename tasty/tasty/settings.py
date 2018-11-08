@@ -162,7 +162,7 @@ JET_SIDE_MENU_ITEMS = [
         {'name': 'food.dish'},
     ]},
     {'label': 'Price Management', 'items': [
-        {'label': 'Update Ingredient Price', 'url': '/admin/edit_ingredient_price', 'url_blank': True},
+        {'label': 'Update Ingredient Price', 'url': '/admin/edit_ingredient_price', 'url_blank': False},
     ]},
     {'label': 'Users and Groups', 'items': [
         {'name': 'auth.user'},
