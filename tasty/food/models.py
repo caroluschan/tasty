@@ -47,7 +47,7 @@ class Tool(models.Model):
     sources = models.ManyToManyField(Source, blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return self.name + '-' + self.type.name
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=255)
@@ -66,7 +66,7 @@ class Ingredient(models.Model):
          return self.prices.order_by('-date').first()
 
     def __str__(self):
-        return self.name
+        return self.name + '-' + self.type.name
 
 class UnitIngredient(models.Model):
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE, related_name='unit_ingredients', verbose_name='ingredient')
