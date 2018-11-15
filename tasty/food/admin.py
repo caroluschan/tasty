@@ -33,7 +33,7 @@ class IngredientAdmin(admin.ModelAdmin):
         return object.price()
 
 class ToolAdmin(admin.ModelAdmin):
-    list_display = ['name', 'type']
+    list_display = ['name', 'type', 'unit',]
     list_display_links= ['name', ]
     list_filter = ['type', 'unit']
     list_per_page = 10
