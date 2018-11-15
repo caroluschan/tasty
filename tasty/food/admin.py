@@ -26,6 +26,7 @@ class ToolTypeAdmin(admin.ModelAdmin):
 class IngredientAdmin(admin.ModelAdmin):
     list_display = ['name', 'type', 'unit','price']
     list_display_links= ['name', ]
+    list_filter = ['type', 'unit']
     list_per_page = 10
 
     def price(self, object):
@@ -34,6 +35,7 @@ class IngredientAdmin(admin.ModelAdmin):
 class ToolAdmin(admin.ModelAdmin):
     list_display = ['name', 'type']
     list_display_links= ['name', ]
+    list_filter = ['type', 'unit']
     list_per_page = 10
 
 class IngredientInline(admin.TabularInline):
