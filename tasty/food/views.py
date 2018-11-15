@@ -26,7 +26,7 @@ def edit_ingredient_price(request):
                 ingredient=ingredient
             )
             ingredient_price.save()
-        return redirect('/admin/food/ingredient/')
+        return redirect('/admin/edit_ingredient_price')
     else:
         form = EditIngredientPriceForm()
         context = {'form': form, }
