@@ -158,10 +158,14 @@ JET_THEMES = [
 JET_SIDE_MENU_COMPACT = True
 JET_SIDE_MENU_ITEMS = [
     {'label': 'Food Engineering', 'items': [
+        {'name': 'food.ingredienttype'},
         {'name': 'food.ingredient'},
+        {'name': 'food.tooltype'},
+        {'name': 'food.tool'},
         {'name': 'food.dish'},
     ]},
     {'label': 'Price Management', 'items': [
+        {'name': 'food.source'},
         {'label': 'Update Ingredient Price', 'url': '/admin/edit_ingredient_price', 'url_blank': False},
     ]},
     {'label': 'Users and Groups', 'items': [

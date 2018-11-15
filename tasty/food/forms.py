@@ -6,7 +6,7 @@ class EditIngredientPriceForm(forms.ModelForm):
 
     class Meta:
         model = IngredientPrice
-        fields = ['ingredient', 'price', 'quantity']
+        fields = ['ingredient', 'price', 'quantity', 'source']
         exclude = ('status', 'date')
 
     def __init__(self, *args, **kwargs):
